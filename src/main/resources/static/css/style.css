@@ -1,0 +1,29 @@
+input[type="text"]{
+    width: 90%;
+    padding: 5px;
+    margin: 10px;
+}
+
+input[type="submit"]{
+    padding: 10px 5px;
+    width: 15%;
+    font-size: large;
+    background: #0270c7;
+    color: #fff;
+    border-radius: 10px;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+}
+
+#home{
+    background: #0270c7;
+    padding: 10px 20px;
+    width: 15%;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 600;
+}

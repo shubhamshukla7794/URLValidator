@@ -6,7 +6,6 @@ import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Optional;
@@ -25,19 +24,43 @@ public class URLServiceImpl implements URLService {
     @Override
     public URLClass findURL(String url) throws Exception {
 
-//        URLClass savedURL;
+        if (urlInspector(url) == "OK") {
+            return getUrlClass(url, "OK");
+        } else {
+            String parentUrl = getParentUrl(url);
+            if (urlInspector(parentUrl) == "OK") {
+                return getUrlClass(parentUrl, "OK");
+            } else {
+                return getUrlClass(url,"404");
+            }
+        }
+
+    }
+
+    private String urlInspector(String url) throws Exception{
         URL inspectURL = new URL(url);
+//        HttpURLConnection.setFollowRedirects(false);
         HttpURLConnection connection = (HttpURLConnection) inspectURL.openConnection();
         connection.setInstanceFollowRedirects(false);
 
         int responseCode = connection.getResponseCode();
 
         if (responseCode == HttpURLConnection.HTTP_OK){
-            return getUrlClass(url,"OK");
+            return "OK";
         } else{
-            return getUrlClass(url,"404");
+            return "404";
         }
+    }
 
+    private String getParentUrl(String childUrl){
+        if (childUrl.endsWith("/")){
+            childUrl = childUrl.substring(0,childUrl.length()-1);
+        }
+        int index = childUrl.lastIndexOf("/");
+        if (index > 0) {
+            return childUrl.substring(0, index);
+        }
+        return "/";
     }
 
     private URLClass getUrlClass(String url, String status) {

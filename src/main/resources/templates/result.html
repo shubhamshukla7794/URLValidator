@@ -2,12 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Result</title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
 </head>
 <body>
-    <p th:text="${urlclass.checkURL}">Text</p>
-    <a th:href="${urlclass.checkURL}">link</a>
-    <p th:text="${urlclass.count}">Text</p>
-    <a href="/">Home</a>
+    <a th:href="${urlclass.checkURL}" th:text="${urlclass.checkURL}">link</a>
+    <p th:text="${urlclass.count + ' - No of times'}">Text</p>
+
+    <div th:if="${urlclass.status == '404'}">
+        <div th:if="${urlclass.count == 1}">
+            <p>You may have mistyped the url</p>
+        </div>
+    </div>
+    <a href="/" id="home">Home</a>
 </body>
 </html>
