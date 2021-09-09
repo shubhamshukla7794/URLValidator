@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>URL Validator</h1>
+    <form th:object="${urlclass}" th:action="@{/validateURL/}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <label for="checkURL">Enter the URL:</label>
+        <input id="checkURL" type="text" th:field="*{checkURL}">
+        <input type="submit">
+    </form>
+</body>
+</html>
