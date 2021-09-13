@@ -1,20 +1,44 @@
-input[type="text"]{
-    width: 90%;
-    padding: 5px;
-    margin: 10px;
+/*input[type="text"]{*/
+/*    width: 90%;*/
+/*    padding: 5px;*/
+/*    margin: 10px;*/
+/*}*/
+
+/*input[type="submit"]{*/
+/*    padding: 10px 5px;*/
+/*    width: 15%;*/
+/*    font-size: large;*/
+/*    background: #0270c7;*/
+/*    color: #fff;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*input[type="submit"]:hover{*/
+/*    cursor: pointer;*/
+/*}*/
+
+.navbar-brand{
+    font-weight: bold;
+    font-size: x-large;
 }
 
-input[type="submit"]{
-    padding: 10px 5px;
-    width: 15%;
+.navbar-text{
     font-size: large;
-    background: #0270c7;
-    color: #fff;
-    border-radius: 10px;
 }
 
-input[type="submit"]:hover{
-    cursor: pointer;
+.container{
+    margin-top: 30vh;
+    background: rgba(2, 129, 213, 0.6);
+    padding: 50px;
+    box-shadow: 1px 1px 23px 2px rgba(0,0,0,0.4);
+}
+
+label{
+    font-size: x-large;
+}
+
+.b-sub{
+    width: 25vw;
 }
 
 #home{
@@ -26,4 +50,23 @@ input[type="submit"]:hover{
     text-transform: uppercase;
     font-family: sans-serif;
     font-weight: 600;
+}
+
+.mainFooter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #032d4b;
+    padding: 15px;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+.mainFooter a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.mainFooter a:hover{
+    color: #a5a5a5;
 }
