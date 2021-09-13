@@ -7,9 +7,9 @@
 </head>
 <body>
     <a th:href="${urlclass.checkURL}" th:text="${urlclass.checkURL}">link</a>
-    <p th:text="${urlclass.count + ' - No of times'}">Text</p>
+    <p th:text="${'This URL was search ' + urlclass.count + ' no. of times'}">Text</p>
 
-    <div th:if="${urlclass.status == '404'}">
+    <div th:if="${urlclass.status != 'Site is up'}">
         <div th:if="${urlclass.count == 1}">
             <p>You may have mistyped the url</p>
         </div>
