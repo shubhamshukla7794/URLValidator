@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Result</title>
-    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
+    <th:block th:insert="fragments/layout::head"></th:block>
 </head>
 <body>
-    <a th:href="${urlclass.checkURL}" th:text="${urlclass.checkURL}">link</a>
-    <p th:text="${'This URL was search ' + urlclass.count + ' no. of times'}">Text</p>
+<th:block th:insert="fragments/layout::header"></th:block>
 
-    <div th:if="${urlclass.status != 'Site is up'}">
-        <div th:if="${urlclass.count == 1}">
-            <p>You may have mistyped the url</p>
+    <div class="container">
+        <a th:href="${urlclass.checkURL}" th:text="${urlclass.checkURL}">link</a>
+        <p th:text="${'This URL was search ' + urlclass.count + ' no. of times'}">Text</p>
+
+        <div th:if="${urlclass.status != 'Site is up'}">
+            <div th:if="${urlclass.count == 1}">
+                <p>You may have mistyped the url</p>
+            </div>
         </div>
     </div>
-    <a href="/" id="home">Home</a>
+
+<th:block th:insert="fragments/layout::footer"></th:block>
+
+<th:block th:insert="fragments/layout::scripts"></th:block>
 </body>
 </html>

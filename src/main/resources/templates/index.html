@@ -3,19 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>URL Validator</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
-            th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-            th:href="@{/webjars/font-awesome/5.15.4/css/all.css}">
-    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
+    <th:block th:insert="fragments/layout::head"></th:block>
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-md navbar-dark" style="background-color: #032d4b;">
-        <a class="navbar-brand" href="#"><i class="fas fa-globe"></i> URL Validator</a>
-        <span class="navbar-text">
-            Check whether the URL exists or not
-        </span>
-    </nav>
+<th:block th:insert="fragments/layout::header"></th:block>
+
     <div class="container">
         <form th:object="${urlclass}" th:action="@{/validateURL/}" method="post">
             <input type="hidden" th:field="*{id}">
@@ -32,48 +24,8 @@
         </form>
     </div>
 
-    <footer class="mainFooter">
-        <div class="row">
-            <div class="col-md-6 pl-5 pt-3">
-                <p>A Spring Boot Project which checks if a URL exists or not</p>
-                <p>© 2021, All rights reserved</p>
-            </div>
-            <div class="col-md-6">
-                <h5><i class="fas fa-id-card"></i> Contact :</h5>
-                <div class="row">
-                    <div class="col-md-2">
-                        <p><i class="fas fa-user-tie"></i> Name</p>
-                    </div>
-                    <div class="col-md-1"><p>-</p></div>
-                    <div class="col-md-9">
-                        <p>SHUBHAM KUMAR SHUKLA</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <p><i class="fas fa-envelope-open"></i> Email</p>
-                    </div>
-                    <div class="col-md-1"><p>-</p></div>
-                    <div class="col-md-9">
-                        <a href="mailto:shubhamshukla7794@gmail.com">shubhamshukla7794@gmail.com</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <p><i class="fab fa-github"></i> Github</p>
-                    </div>
-                    <div class="col-md-1"><p>-</p></div>
-                    <div class="col-md-9">
-                        <a href="https://github.com/shubhamshukla7794" target="_blank">https://github.com/shubhamshukla7794</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+<th:block th:insert="fragments/layout::footer"></th:block>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"
-            th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
-            th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
+<th:block th:insert="fragments/layout::scripts"></th:block>
 </body>
 </html>
