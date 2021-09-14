@@ -164,7 +164,7 @@ public class URLServiceImpl implements URLService {
 
         Optional<URLClass> urlClassOptional = urlRepository.findById(id);
         if (urlClassOptional.isEmpty()){
-            throw new NotFoundException("Not Found"+id.toString());
+            throw new NotFoundException("Value not found for ID value "+id.toString());
         }
 
         return urlClassOptional.get();

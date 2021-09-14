@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>404 Err</title>
+    <th:block th:insert="fragments/layout::head"></th:block>
+</head>
+<body style="background-color: #095182">
+<th:block th:insert="fragments/layout::header"></th:block>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <img src="/images/Space_2.png" class="img-fluid float-left" id="img1">
+            <img src="/images/astronaut.png" class="img-fluid float-left" id="img2">
+        </div>
+        <div class="col-6 error">
+            <h1>404</h1>
+            <h2>LOOKS LIKE YOU ARE LOST IN SPACE.</h2>
+            <h3 th:text="${exception.getMessage()}"></h3>
+            <div class="col-md-6 offset-md-2" id="button-round-lg">
+                <a href="#" th:href="@{/home}" class="btn btn-outline-primary btn-lg">Go to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<th:block th:insert="fragments/layout::footer"></th:block>
+
+<th:block th:insert="fragments/layout::scripts"></th:block>
+</body>
+</html>
