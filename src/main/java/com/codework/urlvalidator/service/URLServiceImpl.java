@@ -82,9 +82,7 @@ public class URLServiceImpl implements URLService {
             url = url.concat("/");
         }
 
-        if (!url.startsWith("https://")) {
-            url = headerUrl.concat(url);
-        }else if (!url.startsWith("http://") && !url.startsWith("https://")){
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
             url = headerUrl.concat(url);
         }
         return url;
@@ -139,7 +137,7 @@ public class URLServiceImpl implements URLService {
         log.debug("I am in Service");
         Optional<URLClass> urlClassOptional = urlRepository.findByCheckURL(url);
 
-        if (!urlClassOptional.isPresent()){
+        if (urlClassOptional.isEmpty()){
 
             URLClass newURL = new URLClass();
             newURL.setCheckURL(url);
@@ -163,7 +161,7 @@ public class URLServiceImpl implements URLService {
     public URLClass findById(Long id) throws Exception {
 
         Optional<URLClass> urlClassOptional = urlRepository.findById(id);
-        if (!urlClassOptional.isPresent()){
+        if (urlClassOptional.isEmpty()){
             throw new NotFoundException("Not Found"+id.toString());
         }
 

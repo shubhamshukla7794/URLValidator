@@ -1,21 +1,8 @@
-/*input[type="text"]{*/
-/*    width: 90%;*/
-/*    padding: 5px;*/
-/*    margin: 10px;*/
-/*}*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-/*input[type="submit"]{*/
-/*    padding: 10px 5px;*/
-/*    width: 15%;*/
-/*    font-size: large;*/
-/*    background: #0270c7;*/
-/*    color: #fff;*/
-/*    border-radius: 10px;*/
-/*}*/
-
-/*input[type="submit"]:hover{*/
-/*    cursor: pointer;*/
-/*}*/
+html{
+    font-family: 'Roboto', sans-serif;
+}
 
 .navbar-brand{
     font-weight: bold;
@@ -33,28 +20,26 @@
     box-shadow: 1px 1px 23px 2px rgba(0,0,0,0.4);
 }
 
+.container a{
+    text-decoration: none;
+    font-weight: 600;
+}
+
 label{
     font-size: x-large;
+    font-weight: 600;
 }
 
 .b-sub{
-    width: 25vw;
-}
-
-#home{
-    background: #0270c7;
-    padding: 10px 20px;
-    width: 15%;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: sans-serif;
-    font-weight: 600;
+    width: 15vw;
+    margin: auto;
+    display: block;
 }
 
 .mainFooter {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
     background-color: #032d4b;
     padding: 15px;

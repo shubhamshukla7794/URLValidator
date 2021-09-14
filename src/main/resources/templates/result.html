@@ -9,14 +9,31 @@
 <th:block th:insert="fragments/layout::header"></th:block>
 
     <div class="container">
-        <a th:href="${urlclass.checkURL}" th:text="${urlclass.checkURL}">link</a>
-        <p th:text="${'This URL was search ' + urlclass.count + ' no. of times'}">Text</p>
 
-        <div th:if="${urlclass.status != 'Site is up'}">
-            <div th:if="${urlclass.count == 1}">
-                <p>You may have mistyped the url</p>
+        <div th:switch="${urlclass.status}">
+            <div th:case="'Site is up'">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading"><i class="fas fa-check"></i> The site is up!</h4>
+                    <p>The URL <a th:href="${urlclass.checkURL}" th:text="${urlclass.checkURL}"
+                                  target="_blank">Link</a> is up and running</p>
+                    <hr>
+                    <p><i class="fas fa-search"></i> <span th:text="${'This URL was searched ' + urlclass.count}">Text</span>
+                    <span th:text="${urlclass.count==1}?' time':' times'">times</span></p>
+                </div>
+            </div>
+            <div th:case="*">
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Error!</h4>
+                    <p>The site <span th:text="${urlclass.checkURL}">Link</span> can’t be reached</p>
+                    <p th:if="${urlclass.count == 1}">You may have mistyped the url</p>
+                    <hr>
+                    <p><i class="fas fa-search"></i> <span th:text="${'This URL was searched ' + urlclass.count}">Text</span>
+                        <span th:text="${urlclass.count==1}?' time':' times'">times</span></p>
+                </div>
             </div>
         </div>
+        <a th:href="@{/}" class="btn-primary btn-lg"><i class="fas fa-home"></i> Home</a>
+
     </div>
 
 <th:block th:insert="fragments/layout::footer"></th:block>
