@@ -76,6 +76,8 @@ public class URLServiceImpl implements URLService {
     }
 
     private String getFormattedURL(String url) {
+        url = url.toLowerCase();
+
         String headerUrl = "https://";
 
         if (!url.endsWith("/")){
