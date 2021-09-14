@@ -17,7 +17,9 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-globe-asia"></i></span>
                     </div>
-                    <input id="checkURL" type="text" class="form-control" th:field="*{checkURL}" required>
+                    <input id="checkURL" type="text" class="form-control" th:field="*{checkURL}"
+                           pattern="(https?:\/\/)?([\d\w\.@:%._\+~#=\?&-]+)\.([\w]{2,6})([\/\w\.@:%._\+~#=\?&-]*)*\/?"
+                           th:maxlength="250" required>
                 </div>
             </div>
             <button type="submit" class="btn-primary btn-lg b-sub"><i class="fas fa-paper-plane"></i> Submit</button>
