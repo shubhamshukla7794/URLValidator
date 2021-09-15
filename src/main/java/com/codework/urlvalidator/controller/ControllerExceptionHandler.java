@@ -24,6 +24,12 @@ public class ControllerExceptionHandler {
         return genericExceptionMethod(exception, "400err");
     }
 
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleRestOtherException(Exception exception) {
+        return genericExceptionMethod(exception, "500err");
+    }
+
     private ModelAndView genericExceptionMethod(Exception exception, String viewName) {
         log.error(exception.getMessage());
 

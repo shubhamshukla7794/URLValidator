@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:insert="fragments/layout::head"></th:block>
+</head>
+<body>
+<th:block th:insert="fragments/layout::header"></th:block>
+<h1>500 ERRoR</h1>
+
+<div class="container-fluid err500">
+    <div class="row">
+        <div class="col-8">
+            <img src="/images/Servers.png" class="img-fluid float-left" id="img_server">
+            <img src="/images/Desktop.png" class="img-fluid float-right" id="img_pc">
+        </div>
+        <div class="col-4 error">
+            <h1>500</h1>
+            <h2>SOMETHING WENT WRONG</h2>
+        </div>
+    </div>
+</div>
+
+<th:block th:insert="fragments/layout::footer"></th:block>
+
+<th:block th:insert="fragments/layout::scripts"></th:block>
+</body>
+</html>

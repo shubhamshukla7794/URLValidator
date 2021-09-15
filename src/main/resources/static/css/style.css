@@ -84,6 +84,21 @@ img{
     margin-top: 10vh;
 }
 
+.err500{
+    height: 90vh;
+}
+
+#img_server{
+    width: 45%;
+    top: 20%;
+}
+
+#img_pc{
+    width: 45%;
+    right: 0%;
+    top: 20%;
+}
+
 .mainFooter {
     position: absolute;
     bottom: 0;
