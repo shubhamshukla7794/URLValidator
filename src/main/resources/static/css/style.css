@@ -4,6 +4,7 @@ html{
     font-family: 'Roboto', sans-serif;
 }
 
+
 .navbar-brand{
     font-weight: bold;
     font-size: x-large;
@@ -25,6 +26,11 @@ html{
     font-weight: 600;
 }
 
+.container-fluid{
+    height: 100vh;
+    background-color: #095182;
+}
+
 label{
     font-size: x-large;
     font-weight: 600;
@@ -34,6 +40,48 @@ label{
     width: 15vw;
     margin: auto;
     display: block;
+}
+
+.error {
+    margin-top: 10%;
+    color: #ffffff;
+}
+
+.error h1{
+    font-size: 150px;
+}
+
+img{
+    position: absolute;
+}
+
+#img1{
+    z-index: 1;
+    /*max-height: 160%;*/
+    height: 90vh;
+}
+
+#img2{
+    z-index: 3;
+    /*max-height: 170%;*/
+    width: 300px;
+    height: 300px;
+    position: relative;
+    animation-name: updown;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes updown {
+    0%   {left:200px; top:70px;}
+    50%  {left:200px; top:300px;}
+    100% {left:200px; top:70px;}
+}
+
+#robot{
+    height: 100%;
+    margin-left: 10vw;
+    margin-top: 10vh;
 }
 
 .mainFooter {
@@ -55,39 +103,4 @@ label{
 
 .mainFooter a:hover{
     color: #a5a5a5;
-}
-
-.error {
-    margin-top: 10%;
-    color: #ffffff;
-}
-
-.error h1{
-    font-size: 150px;
-}
-
-img{
-    position: absolute;
-}
-
-#img1{
-    z-index: 1;
-    max-height: 160%;
-}
-
-#img2{
-    z-index: 3;
-    /*max-height: 170%;*/
-    width: 300px;
-    height: 300px;
-    position: relative;
-    animation-name: updown;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes updown {
-    0%   {left:200px; top:70px;}
-    50%  {left:200px; top:300px;}
-    100% {left:200px; top:70px;}
 }

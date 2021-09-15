@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>400</title>
-
+    <th:block th:insert="fragments/layout::head"></th:block>
 </head>
 <body>
-<h1>400</h1>
-<h2>You have sent a bad request</h2>
-<h3 th:text="${exception.getMessage()}"></h3>
+<th:block th:insert="fragments/layout::header"></th:block>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <img src="/images/robot_thinking_animation.gif" class="img-fluid float-left" id="robot">
+        </div>
+        <div class="col-6 error">
+            <h1>400</h1>
+            <h2>YOU HAVE SENT A BAD REQUEST</h2>
+            <h3 th:text="${exception.getMessage()}"></h3>
+            <div class="col-md-6 offset-md-2" id="button-round-lg">
+                <a href="#" th:href="@{/}" class="btn btn-outline-primary btn-lg">Go to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:insert="fragments/layout::footer"></th:block>
+
+<th:block th:insert="fragments/layout::scripts"></th:block>
 </body>
 </html>

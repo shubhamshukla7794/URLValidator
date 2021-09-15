@@ -5,7 +5,7 @@
     <title>404 Err</title>
     <th:block th:insert="fragments/layout::head"></th:block>
 </head>
-<body style="background-color: #095182">
+<body>
 <th:block th:insert="fragments/layout::header"></th:block>
 
 <div class="container-fluid">
@@ -19,16 +19,11 @@
             <h2>LOOKS LIKE YOU ARE LOST IN SPACE.</h2>
             <h3 th:text="${exception.getMessage()}"></h3>
             <div class="col-md-6 offset-md-2" id="button-round-lg">
-                <a href="#" th:href="@{/home}" class="btn btn-outline-primary btn-lg">Go to Home</a>
+                <a href="#" th:href="@{/}" class="btn btn-outline-primary btn-lg">Go to Home</a>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
 
 <th:block th:insert="fragments/layout::footer"></th:block>
 
