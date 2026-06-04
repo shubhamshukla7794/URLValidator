@@ -2,42 +2,67 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Result</title>
+    <title>Inspection Result</title>
     <th:block th:insert="fragments/layout::head"></th:block>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
 <th:block th:insert="fragments/layout::header"></th:block>
 
-    <div class="container">
+    <main class="flex-grow flex items-center justify-center px-4 py-16">
+        <div class="w-full max-w-xl bg-slate-800/40 backdrop-blur-md border border-slate-700/60 p-8 rounded-2xl shadow-2xl text-center">
+            
+            <div th:switch="${urlclass.status}">
+                <div th:case="'Site is up'" class="space-y-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-emerald-500/10 text-emerald-400 rounded-full">
+                        <i class="fas fa-circle-check text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-emerald-400">Website is Online</h3>
+                        <p class="text-slate-400 mt-2 text-sm">We successfully established a connection with:</p>
+                        <div class="mt-3 p-3 bg-slate-950/40 rounded-xl border border-slate-700/50 break-all select-all font-mono text-sm text-blue-400">
+                            <a th:href="${urlclass.checkURL}" th:text="${urlclass.checkURL}" target="_blank" class="hover:underline">Link</a>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t border-slate-700/60 pt-4 flex items-center justify-center gap-2 text-slate-400 text-xs tracking-wider uppercase font-medium">
+                        <i class="fas fa-chart-bar text-slate-500"></i> 
+                        <span th:text="${'Searched ' + urlclass.count}">0</span>
+                        <span th:text="${urlclass.count == 1} ? 'time' : 'times'">times</span>
+                    </div>
+                </div>
 
-        <div th:switch="${urlclass.status}">
-            <div th:case="'Site is up'">
-                <div class="alert alert-success" role="alert">
-                    <h4 class="alert-heading"><i class="fas fa-check"></i> The site is up!</h4>
-                    <p>The URL <a th:href="${urlclass.checkURL}" th:text="${urlclass.checkURL}"
-                                  target="_blank">Link</a> is up and running</p>
-                    <hr>
-                    <p><i class="fas fa-search"></i> <span th:text="${'This URL was searched ' + urlclass.count}">Text</span>
-                    <span th:text="${urlclass.count==1}?' time':' times'">times</span></p>
+                <div th:case="*" class="space-y-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-rose-500/10 text-rose-400 rounded-full">
+                        <i class="fas fa-triangle-exclamation text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-rose-400">Host Unreachable</h3>
+                        <p class="text-slate-400 mt-2 text-sm">The platform could not make contact with:</p>
+                        <div class="mt-3 p-3 bg-slate-950/40 rounded-xl border border-slate-700/50 break-all font-mono text-sm text-rose-300">
+                            <span th:text="${urlclass.checkURL}">URL</span>
+                        </div>
+                        <p th:if="${urlclass.count == 1}" class="text-amber-400 text-xs mt-3 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-lg inline-block">
+                            <i class="fas fa-lightbulb"></i> Hint: Double-check your domain syntax.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-slate-700/60 pt-4 flex items-center justify-center gap-2 text-slate-400 text-xs tracking-wider uppercase font-medium">
+                        <i class="fas fa-chart-bar text-slate-500"></i> 
+                        <span th:text="${'Searched ' + urlclass.count}">0</span>
+                        <span th:text="${urlclass.count == 1} ? 'time' : 'times'">times</span>
+                    </div>
                 </div>
             </div>
-            <div th:case="*">
-                <div class="alert alert-danger" role="alert">
-                    <h4 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Error!</h4>
-                    <p>The site <span th:text="${urlclass.checkURL}">Link</span> can’t be reached</p>
-                    <p th:if="${urlclass.count == 1}">You may have mistyped the url</p>
-                    <hr>
-                    <p><i class="fas fa-search"></i> <span th:text="${'This URL was searched ' + urlclass.count}">Text</span>
-                        <span th:text="${urlclass.count==1}?' time':' times'">times</span></p>
-                </div>
+
+            <div class="mt-8 pt-4">
+                <a th:href="@{/}" class="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-700 text-slate-200 font-medium px-6 py-2.5 rounded-xl border border-slate-700 transition">
+                    <i class="fas fa-arrow-left text-xs"></i> Back to Monitor
+                </a>
             </div>
+
         </div>
-        <a th:href="@{/}" class="btn-primary btn-lg"><i class="fas fa-home"></i> Home</a>
-
-    </div>
+    </main>
 
 <th:block th:insert="fragments/layout::footer"></th:block>
-
-<th:block th:insert="fragments/layout::scripts"></th:block>
 </body>
 </html>

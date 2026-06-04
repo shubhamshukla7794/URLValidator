@@ -2,69 +2,58 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.min.css}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-          th:href="@{/webjars/font-awesome/5.15.4/css/all.css}">
-    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        /* Floating animation for the 404 astronaut */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+    </style>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between">
 
 <th:block th:fragment="header">
-    <nav class="navbar fixed-top navbar-expand-md navbar-dark" style="background-color: #032d4b;">
-        <a class="navbar-brand" href="/"><i class="fas fa-globe"></i> URL Validator</a>
-        <span class="navbar-text">
-            Check whether the URL exists or not
-        </span>
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/70 border-b border-slate-800 px-6 py-4">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <a class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent flex items-center gap-2" href="/">
+                <i class="fas fa-globe"></i> URL Inspector
+            </a>
+            <span class="text-sm text-slate-400">
+                Instantly check network server availability
+            </span>
+        </div>
     </nav>
 </th:block>
 
 <th:block th:fragment="footer">
-    <footer class="mainFooter">
-        <div class="row">
-            <div class="col-6 pl-5 pt-3">
-                <p>A Spring Boot Project which checks if a URL exists or not</p>
-                <p>© 2021, All rights reserved</p>
+    <footer class="bg-slate-950 border-t border-slate-800 mt-auto py-10 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+            <div>
+                <h4 class="text-slate-200 font-semibold text-lg mb-3">Developer Profile</h4>
+                <p class="text-slate-400 flex items-center gap-2 mb-2"><i class="fas fa-user text-blue-400"></i> SHUBHAM KUMAR SHUKLA</p>
+                <p class="text-slate-400 flex items-center gap-2">
+                    <i class="fas fa-envelope text-blue-400"></i> 
+                    <a href="mailto:shubhamshukla7794@gmail.com" class="hover:text-blue-400 transition">shubhamshukla7794@gmail.com</a>
+                </p>
             </div>
-            <div class="col-6">
-                <h5><i class="fas fa-id-card"></i> Contact :</h5>
-                <div class="row">
-                    <div class="col-2">
-                        <p><i class="fas fa-user-tie"></i> Name</p>
-                    </div>
-                    <div class="col-1"><p>-</p></div>
-                    <div class="col-9">
-                        <p>SHUBHAM KUMAR SHUKLA</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-2">
-                        <p><i class="fas fa-envelope-open"></i> Email</p>
-                    </div>
-                    <div class="col-1"><p>-</p></div>
-                    <div class="col-9">
-                        <a href="mailto:shubhamshukla7794@gmail.com">shubhamshukla7794@gmail.com</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-2">
-                        <p><i class="fab fa-github"></i> Github</p>
-                    </div>
-                    <div class="col-1"><p>-</p></div>
-                    <div class="col-9">
-                        <a href="https://github.com/shubhamshukla7794" target="_blank">https://github.com/shubhamshukla7794</a>
-                    </div>
-                </div>
+            <div class="md:text-right flex flex-col md:items-end justify-center">
+                <h4 class="text-slate-200 font-semibold text-lg mb-3">Project Link</h4>
+                <a href="https://github.com/shubhamshukla7794/URLValidator" target="_blank" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 px-4 py-2 rounded-lg transition w-fit">
+                    <i class="fab fa-github"></i> View GitHub Repository
+                </a>
             </div>
         </div>
     </footer>
 </th:block>
 
 <th:block th:fragment="scripts">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"
-            th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"
-            th:src="@{/webjars/bootstrap/4.6.0/js/bootstrap.min.js}"></script>
-</th:block>
+    </th:block>
+
 </body>
 </html>

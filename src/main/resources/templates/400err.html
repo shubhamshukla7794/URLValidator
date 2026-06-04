@@ -2,30 +2,35 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Bad Request</title>
+    <title>400 | Bad Request</title>
     <th:block th:insert="fragments/layout::head"></th:block>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
 <th:block th:insert="fragments/layout::header"></th:block>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-6">
-            <img src="/images/robot_thinking_animation.gif" class="img-fluid float-left" id="robot">
-        </div>
-        <div class="col-6 error">
-            <h1>400</h1>
-            <h2>YOU HAVE SENT A BAD REQUEST</h2>
-            <h3 th:text="${exception.getMessage()}"></h3>
-            <div class="col-md-6 offset-md-2" id="button-round-lg">
-                <a href="#" th:href="@{/}" class="btn btn-outline-primary btn-lg">Go to Home</a>
+    <main class="flex-grow flex items-center justify-center px-6 py-12">
+        <div class="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+            <div class="flex items-center justify-center">
+                <div class="p-4 bg-slate-800/40 rounded-2xl border border-slate-700/50">
+                    <img src="../static/images/robot_thinking_animation.gif" class="max-h-64 object-contain rounded-xl" alt="Thinking Robot">
+                </div>
+            </div>
+            
+            <div class="space-y-6 text-center md:text-left">
+                <h1 class="text-7xl font-extrabold text-amber-500">400</h1>
+                <h2 class="text-xl md:text-2xl font-bold text-slate-200 uppercase tracking-wide">Invalid Syntax Input</h2>
+                <p class="text-slate-400 text-sm leading-relaxed" th:text="${exception.getMessage()}">
+                    The server could not interpret or run parameters mapped inside your transmission form.
+                </p>
+                <div class="pt-2">
+                    <a th:href="@{/}" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-6 py-3 rounded-xl border border-slate-700 transition">
+                        <i class="fas fa-rotate-left text-sm"></i> Retry Form Submission
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </main>
 
 <th:block th:insert="fragments/layout::footer"></th:block>
-
-<th:block th:insert="fragments/layout::scripts"></th:block>
 </body>
 </html>

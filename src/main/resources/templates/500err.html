@@ -2,28 +2,35 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>500 | Server Error</title>
     <th:block th:insert="fragments/layout::head"></th:block>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
 <th:block th:insert="fragments/layout::header"></th:block>
-<h1>500 ERRoR</h1>
 
-<div class="container-fluid err500">
-    <div class="row">
-        <div class="col-8">
-            <img src="/images/Servers.png" class="img-fluid float-left" id="img_server">
-            <img src="/images/Desktop.png" class="img-fluid float-right" id="img_pc">
+    <main class="flex-grow flex items-center justify-center px-6 py-12">
+        <div class="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 items-center gap-12">
+            <div class="flex items-center justify-center gap-4 bg-slate-950/30 p-6 rounded-2xl border border-slate-800">
+                <img src="../static/images/Servers.png" class="max-h-48 object-contain" alt="Servers">
+                <div class="text-slate-600 text-xl"><i class="fas fa-bolt-lightning"></i></div>
+                <img src="../static/images/Desktop.png" class="max-h-48 object-contain" alt="Workstation">
+            </div>
+            
+            <div class="space-y-6 text-center md:text-left">
+                <h1 class="text-7xl font-extrabold text-rose-500">500</h1>
+                <h2 class="text-xl md:text-2xl font-bold text-slate-200 uppercase tracking-wide">Internal Server Error</h2>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Something went wrong deep inside our internal processing platform modules. Rest assured, our core logging layers have caught the slip-up.
+                </p>
+                <div class="pt-2">
+                    <a th:href="@{/}" class="inline-flex items-center gap-2 bg-gradient-to-r from-rose-600 to-orange-600 hover:from-rose-500 hover:to-orange-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition">
+                        <i class="fas fa-house text-sm"></i> Back to Homepage
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="col-4 error">
-            <h1>500</h1>
-            <h2>SOMETHING WENT WRONG</h2>
-        </div>
-    </div>
-</div>
+    </main>
 
 <th:block th:insert="fragments/layout::footer"></th:block>
-
-<th:block th:insert="fragments/layout::scripts"></th:block>
 </body>
 </html>
